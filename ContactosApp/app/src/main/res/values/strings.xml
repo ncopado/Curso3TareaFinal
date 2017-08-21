@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ContactosApp</string>
+    <string name="txt_name">Nombre Completo</string>
+    <string name="txt_date">Fecha de Nacimiento</string>
+    <string name="txt_phone">Telefono</string>
+    <string name="txt_email">Email</string>
+    <string name="txt_desc">Descripción del contacto</string>
+
+</resources>
