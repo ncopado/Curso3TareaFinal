@@ -74,11 +74,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(MainActivity.this,DetalleContacto.class);
-                intent.putExtra("nombre",tvName.getText().toString().trim());
-                intent.putExtra("fecha", tvDate.getText().toString().trim());
-                intent.putExtra("tel",tvPhone.getText().toString().trim());
-                intent.putExtra("correo",tvEmail.getText().toString().trim());
-                intent.putExtra("desc",tvDesc.getText().toString().trim());
+                intent.putExtra(getResources().getString(R.string.pnombre),tvName.getText().toString().trim());
+                intent.putExtra(getResources().getString(R.string.pfecha), tvDate.getText().toString().trim());
+                intent.putExtra(getResources().getString(R.string.ptel),tvPhone.getText().toString().trim());
+                intent.putExtra(getResources().getString(R.string.pcorreo),tvEmail.getText().toString().trim());
+                intent.putExtra(getResources().getString(R.string.pdesc),tvDesc.getText().toString().trim());
                 startActivity(intent);
                 finish();
             }
@@ -89,11 +89,11 @@ public class MainActivity extends AppCompatActivity {
       Bundle bundle = getIntent().getExtras();
 
         if(bundle !=null){
-        String nombre = bundle.getString("nombre");
-        String fecha = bundle.getString("fecha");
-        String tel = bundle.getString("tel");
-        String correo = bundle.getString("correo");
-        String desc = bundle.getString("desc");
+        String nombre = bundle.getString(getResources().getString(R.string.pnombre));
+        String fecha = bundle.getString(getResources().getString(R.string.pfecha));
+        String tel = bundle.getString(getResources().getString(R.string.ptel));
+        String correo = bundle.getString(getResources().getString(R.string.pcorreo));
+        String desc = bundle.getString(getResources().getString(R.string.pdesc));
 
         tvName=(TextInputEditText) findViewById(R.id.tvName);
         tvName.setText(nombre);

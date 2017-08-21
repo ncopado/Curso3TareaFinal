@@ -22,11 +22,11 @@ public class DetalleContacto extends AppCompatActivity {
         setContentView(R.layout.activity_detalle_contacto);
 
         Bundle bundle = getIntent().getExtras();
-        String nombre = bundle.getString("nombre");
-        String fecha = bundle.getString("fecha");
-        String tel = bundle.getString("tel");
-        String correo = bundle.getString("correo");
-        String desc = bundle.getString("desc");
+        String nombre = bundle.getString(getResources().getString(R.string.pnombre));
+        String fecha = bundle.getString(getResources().getString(R.string.pfecha));
+        String tel = bundle.getString(getResources().getString(R.string.ptel));
+        String correo = bundle.getString(getResources().getString(R.string.pcorreo));
+        String desc = bundle.getString(getResources().getString(R.string.pdesc));
 
 
 
@@ -55,11 +55,11 @@ public class DetalleContacto extends AppCompatActivity {
 
 
                 Intent intent=new Intent(DetalleContacto.this,MainActivity.class);
-                intent.putExtra("nombre",tvNameConfirm.getText().toString().trim());
-                intent.putExtra("fecha", tvDay.getText().toString().trim());
-                intent.putExtra("tel",tvPhone.getText().toString().trim());
-                intent.putExtra("correo",tvEmail.getText().toString().trim());
-                intent.putExtra("desc",tvDesc.getText().toString().trim());
+                intent.putExtra(getResources().getString(R.string.pnombre),tvNameConfirm.getText().toString().trim());
+                intent.putExtra(getResources().getString(R.string.pfecha), tvDay.getText().toString().trim());
+                intent.putExtra(getResources().getString(R.string.ptel),tvPhone.getText().toString().trim());
+                intent.putExtra(getResources().getString(R.string.pcorreo),tvEmail.getText().toString().trim());
+                intent.putExtra(getResources().getString(R.string.pdesc),tvDesc.getText().toString().trim());
                 startActivity(intent);
                 finish();
             }

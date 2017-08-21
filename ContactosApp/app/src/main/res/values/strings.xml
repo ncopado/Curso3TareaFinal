@@ -8,5 +8,10 @@
     <string name="btn_siguiente">Siguiente</string>
     <string name="btn_Editar">Editar Datos</string>
     <string name="txt_Descripcion">Descripción:</string>
+    <string name="pnombre">nombre</string>
+    <string name="pfecha">fecha</string>
+    <string name="ptel">tel</string>
+    <string name="pcorreo">correo</string>
+    <string name="pdesc">desc</string>
 
 </resources>
