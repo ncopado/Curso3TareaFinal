@@ -19,6 +19,11 @@ public class MainActivity extends AppCompatActivity {
     private  DatePickerDialog.OnDateSetListener dlg;
     private TextInputEditText txt;
     private TextInputEditText tvName;
+    private  TextInputEditText tvDate;
+    private  TextInputEditText tvPhone;
+    private  TextInputEditText tvEmail;
+    private  TextInputEditText tvDesc;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,15 +65,52 @@ public class MainActivity extends AppCompatActivity {
 
         Button btn=(Button) findViewById(R.id.btnNext);
         tvName=(TextInputEditText)  findViewById(R.id.tvName);
+        tvDate=(TextInputEditText)  findViewById(R.id.tvDate);
+        tvPhone=(TextInputEditText)  findViewById(R.id.tvPhone);
+        tvEmail=(TextInputEditText)  findViewById(R.id.tvEmail);
+        tvDesc=(TextInputEditText)  findViewById(R.id.tvDesc);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(MainActivity.this,DetalleContacto.class);
                 intent.putExtra("nombre",tvName.getText().toString().trim());
+                intent.putExtra("fecha", tvDate.getText().toString().trim());
+                intent.putExtra("tel",tvPhone.getText().toString().trim());
+                intent.putExtra("correo",tvEmail.getText().toString().trim());
+                intent.putExtra("desc",tvDesc.getText().toString().trim());
                 startActivity(intent);
+                finish();
             }
         });
+
+
+
+      Bundle bundle = getIntent().getExtras();
+
+        if(bundle !=null){
+        String nombre = bundle.getString("nombre");
+        String fecha = bundle.getString("fecha");
+        String tel = bundle.getString("tel");
+        String correo = bundle.getString("correo");
+        String desc = bundle.getString("desc");
+
+        tvName=(TextInputEditText) findViewById(R.id.tvName);
+        tvName.setText(nombre);
+
+        tvDate=(TextInputEditText) findViewById(R.id.tvDate);
+        tvDate.setText(fecha);
+
+        tvPhone=(TextInputEditText) findViewById(R.id.tvPhone);
+        tvPhone.setText(tel);
+
+        tvEmail=(TextInputEditText) findViewById(R.id.tvEmail);
+        tvEmail.setText(correo);
+
+        tvDesc=(TextInputEditText) findViewById(R.id.tvDesc);
+        tvDesc.setText(desc);
+
+        }
 
     }
 

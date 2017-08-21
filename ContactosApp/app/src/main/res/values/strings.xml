@@ -5,5 +5,8 @@
     <string name="txt_phone">Telefono</string>
     <string name="txt_email">Email</string>
     <string name="txt_desc">Descripción del contacto</string>
+    <string name="btn_siguiente">Siguiente</string>
+    <string name="btn_Editar">Editar Datos</string>
+    <string name="txt_Descripcion">Descripción:</string>
 
 </resources>
