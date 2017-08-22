@@ -120,7 +120,7 @@
             android:hint="@string/txt_email"
             android:layout_marginLeft="@dimen/marginLeft"
             android:fontFamily="casual"
-            android:inputType="textEmailAddress"Nemesio
+            android:inputType="textEmailAddress"
             />
 
 
