@@ -19,53 +19,24 @@ public class MainActivity extends AppCompatActivity {
     private  DatePickerDialog.OnDateSetListener dlg;
     private TextInputEditText txt;
     private TextInputEditText tvName;
-    private  TextInputEditText tvDate;
+    // private  TextInputEditText tvDate;
     private  TextInputEditText tvPhone;
     private  TextInputEditText tvEmail;
     private  TextInputEditText tvDesc;
+    private DatePicker tvDate ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        txt=(TextInputEditText) findViewById(R.id.tvDate);
-
-        txt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Calendar cal=Calendar.getInstance();
-                int year=cal.get(Calendar.YEAR);
-                int month=cal.get(Calendar.MONTH);
-                int day=cal.get(Calendar.DAY_OF_MONTH);
-
-                DatePickerDialog dialog =new DatePickerDialog(
-                        MainActivity.this,
-                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,dlg
-                        ,year,month,day);
-
-                dialog.show();
 
 
 
-            }
-        });
-
-
-
-
-        dlg =new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                String date=day +"/"+month + "/" + year;
-                txt.setText(date);
-            }
-        };
 
         Button btn=(Button) findViewById(R.id.btnNext);
         tvName=(TextInputEditText)  findViewById(R.id.tvName);
-        tvDate=(TextInputEditText)  findViewById(R.id.tvDate);
+        tvDate= (DatePicker) findViewById(R.id.datePicker);
         tvPhone=(TextInputEditText)  findViewById(R.id.tvPhone);
         tvEmail=(TextInputEditText)  findViewById(R.id.tvEmail);
         tvDesc=(TextInputEditText)  findViewById(R.id.tvDesc);
@@ -73,9 +44,15 @@ public class MainActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                 int day = tvDate.getDayOfMonth();
+                 int month = tvDate.getMonth() + 1;
+                 int year = tvDate.getYear();
+
+
                 Intent intent=new Intent(MainActivity.this,DetalleContacto.class);
                 intent.putExtra(getResources().getString(R.string.pnombre),tvName.getText().toString().trim());
-                intent.putExtra(getResources().getString(R.string.pfecha), tvDate.getText().toString().trim());
+                intent.putExtra(getResources().getString(R.string.pfecha), day +"/" + month + "/"+year);
                 intent.putExtra(getResources().getString(R.string.ptel),tvPhone.getText().toString().trim());
                 intent.putExtra(getResources().getString(R.string.pcorreo),tvEmail.getText().toString().trim());
                 intent.putExtra(getResources().getString(R.string.pdesc),tvDesc.getText().toString().trim());
@@ -98,8 +75,11 @@ public class MainActivity extends AppCompatActivity {
         tvName=(TextInputEditText) findViewById(R.id.tvName);
         tvName.setText(nombre);
 
-        tvDate=(TextInputEditText) findViewById(R.id.tvDate);
-        tvDate.setText(fecha);
+
+        String[] parts = fecha.split("/");
+        tvDate.updateDate(Integer.parseInt(parts[2]), (Integer.parseInt(parts[1]) - 1), Integer.parseInt(parts[0]));
+
+
 
         tvPhone=(TextInputEditText) findViewById(R.id.tvPhone);
         tvPhone.setText(tel);
